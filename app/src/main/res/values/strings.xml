@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Супер Тачки</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_create_order">Create Order</string>
+    <string name="action_share">Share</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="title_top">«Я женился на 12 цилиндрах и никогда с ними не расставался»\n - Энцо Феррари </string>
+    <string-array name="titles">
+        <item>Главное</item>
+        <item>Самые - самые</item>
+        <item>Новые суперкары</item>
+        <item>Старые суперкары</item>
+        <item>Ретро суперкары</item>
+        <item>О приложении</item>
+    </string-array>
+
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
