@@ -11,10 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.root.supercars.ModelsCategoriesActivity"
     android:background="@color/accent_material_light_1">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/text"/>
+
 
     <android.support.v7.widget.RecyclerView
                                             android:id="@+id/newcars_model_recycler"

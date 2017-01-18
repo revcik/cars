@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:visible="true"
+        android:id="@+id/group">
+        <item android:id="@+id/weight"
+              android:title="weight"
+              android:showAsAction="never"
+              android:icon="?android:attr/alertDialogIcon"
+
+
+              />
+        <item android:title="Item"
+              android:icon="?android:attr/actionModeCopyDrawable"
+              android:showAsAction="never"
+              android:id="@+id/accel"
+              />
+        <item android:title="Item"
+              android:icon="?android:attr/actionModeSelectAllDrawable"
+              android:id="@+id/price"
+              android:showAsAction="never"
+              />
+    </group>
+</menu>

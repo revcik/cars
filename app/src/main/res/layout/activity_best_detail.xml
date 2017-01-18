@@ -27,7 +27,8 @@
         android:id="@+id/car_image"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:layout_height="210dp"/>
+        android:layout_height="210dp"
+        android:background="@color/colorPrimary"/>
     <RelativeLayout
         android:id="@+id/specs"
         android:layout_below="@+id/car_image"
@@ -38,22 +39,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/engine"
+        android:id="@+id/enginesort"
         android:text="МОТОР: "
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginTop="3dp"
         android:textSize="14sp"/>
     <TextView
-        android:layout_below="@+id/engine"
+        android:layout_below="@+id/enginesort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/weight"
+        android:id="@+id/weightsort"
         android:text="ВЕС: "
         android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="14sp"/>
     <TextView
-        android:layout_below="@+id/weight"
+        android:layout_below="@+id/weightsort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bhp"
@@ -66,32 +67,32 @@
         android:layout_below="@+id/bhp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/accel"
+        android:id="@+id/accelsort"
         android:text="УСКОРЕНИЕ: "
         android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="14sp"/>
     <TextView
-        android:layout_below="@+id/accel"
+        android:layout_below="@+id/accelsort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/speed"
+        android:id="@+id/speedsort"
         android:text="СКОРОСТЬ: "
         android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="14sp"/>
     <TextView
-        android:layout_below="@+id/speed"
+        android:layout_below="@+id/speedsort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/price"
+        android:id="@+id/pricesort"
         android:text="ЦЕНА: "
         android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="14sp"/>
     <TextView
 
-        android:layout_toRightOf="@+id/engine"
+        android:layout_toRightOf="@+id/enginesort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/engine2"
@@ -100,7 +101,7 @@
         android:textSize="14sp"/>
     <TextView
         android:layout_below="@+id/engine2"
-        android:layout_toRightOf="@+id/weight"
+        android:layout_toRightOf="@+id/weightsort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/weight2"
@@ -119,7 +120,7 @@
 
     <TextView
         android:layout_below="@+id/bhp2"
-        android:layout_toRightOf="@+id/accel"
+        android:layout_toRightOf="@+id/accelsort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/accel2"
@@ -128,7 +129,7 @@
         android:textSize="14sp"/>
     <TextView
         android:layout_below="@+id/accel2"
-        android:layout_toRightOf="@+id/speed"
+        android:layout_toRightOf="@+id/speedsort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/speed2"
@@ -137,7 +138,7 @@
         android:textSize="14sp"/>
     <TextView
         android:layout_below="@+id/speed2"
-        android:layout_toRightOf="@+id/price"
+        android:layout_toRightOf="@+id/pricesort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/price2"
@@ -154,7 +155,7 @@
         android:paddingLeft="15dp">>
 
     <TextView
-        android:layout_below="@+id/price"
+        android:layout_below="@+id/pricesort"
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -96,11 +96,11 @@ public class MainActivity extends Activity {
 
 
     }
-    public boolean onPrepareOptionsMenu(Menu menu){
-        boolean drawerOpen = drawerLayout.isDrawerOpen(drawerList);
-        menu.findItem((R.id.action_share)).setVisible(!drawerOpen);
-        return super.onPrepareOptionsMenu(menu);
-    }
+//    public boolean onPrepareOptionsMenu(Menu menu){
+//        boolean drawerOpen = drawerLayout.isDrawerOpen(drawerList);
+//        menu.findItem((R.id.action_share)).setVisible(!drawerOpen);
+//        return super.onPrepareOptionsMenu(menu);
+//    }
 
     protected void onPostCreate(Bundle savedInstanceState){
         super.onPostCreate(savedInstanceState);
@@ -113,11 +113,10 @@ public class MainActivity extends Activity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
-
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem menuItem = menu.findItem(R.id.action_share);
-        shareActionProvider = (ShareActionProvider) menuItem.getActionProvider();
-        setIntent("This is example text");
+//        MenuItem menuItem = menu.findItem(R.id.action_share);
+//        shareActionProvider = (ShareActionProvider) menuItem.getActionProvider();
+//        setIntent("This is example text");
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -126,8 +125,8 @@ public class MainActivity extends Activity {
             return true;
         }
         switch(item.getItemId()){
-            case R.id.action_settings:
-                return true;
+//            case R.id.action_settings:
+//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

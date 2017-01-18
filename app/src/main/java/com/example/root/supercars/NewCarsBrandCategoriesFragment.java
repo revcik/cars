@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -34,6 +37,8 @@ public class NewCarsBrandCategoriesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         RecyclerView newcars_recycler = (RecyclerView) inflater.inflate(R.layout.fragment_new_cars, container, false);
 
         try {
@@ -73,6 +78,22 @@ public class NewCarsBrandCategoriesFragment extends Fragment {
 
         return newcars_recycler;
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_new_cars, menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.cars:
+                Intent intent = new Intent(getActivity(), AllNewCarsActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
 
