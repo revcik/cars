@@ -2,6 +2,7 @@ package com.example.root.supercars;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -18,13 +19,14 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewCarsFragment extends Fragment {
+public class NewCarsBrandCategoriesFragment extends Fragment {
     private static String[] Brands;
     private static int[] Logos;
     private Cursor cursor;
 
 
-    public NewCarsFragment() {
+
+    public NewCarsBrandCategoriesFragment() {
         // Required empty public constructor
     }
 
@@ -37,7 +39,7 @@ public class NewCarsFragment extends Fragment {
         try {
             SQLiteOpenHelper carsdb = new CarsDatabaseHelper(getActivity());
             SQLiteDatabase db = carsdb.getReadableDatabase();
-            cursor = db.rawQuery("SELECT * FROM NEWCARSCTGRS", null);
+            cursor = db.rawQuery("SELECT * FROM NEWCARS", null);
 
             Brands = new String[cursor.getCount()];
             Logos = new int[cursor.getCount()];
@@ -61,13 +63,13 @@ public class NewCarsFragment extends Fragment {
         newcars_recycler.setAdapter(adapter);
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
         newcars_recycler.setLayoutManager(layoutManager);
-//        adapter.setListener(new CaptionedImagesAdapter.Listener() {
-//            public void onClick(int position) {
-//                Intent intent = new Intent(getActivity(), BestDetailActivity.class);
-//                intent.putExtra(BestDetailActivity.EXTRA_CARNO, position);
-//                getActivity().startActivity(intent);
-//            }
-//        });
+        adapter.setListener(new CaptionedImagesAdapter.Listener() {
+            public void onClick(int position) {
+                Intent intent = new Intent(getActivity(), ModelsCategoriesActivity.class);
+                intent.putExtra(NewCarsDetailActivity.CAR_MODEL, position);
+                getActivity().startActivity(intent);
+            }
+        });
 
         return newcars_recycler;
 

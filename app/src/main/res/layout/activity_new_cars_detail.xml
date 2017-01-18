@@ -2,93 +2,148 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_car_detail"
+    android:id="@+id/activity_new_cars_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="6dp"
-    tools:context="com.example.root.supercars.BestDetailActivity"
+    tools:context="com.example.root.supercars.NewCarsDetailActivity"
     android:background="@color/accent_material_light_1">
 
+    <RelativeLayout
+        android:paddingTop="2dp"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
     <TextView
-        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/year"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_marginRight="4dp"
+        android:typeface="serif"/>
+
+
+    <TextView
+        android:layout_alignTop="@+id/year"
+        android:layout_toRightOf="@+id/year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/car_brand"
         android:gravity="center"
-        android:textColor="@android:color/holo_orange_dark"
         android:textSize="18sp"
         android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_orange_dark"
         android:typeface="serif"/>
+    <TextView
+        android:layout_alignTop="@+id/car_brand"
+        android:layout_toRightOf="@+id/car_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/car_model"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_marginLeft="5dp"
+        android:typeface="serif"/>
+    </RelativeLayout>
 
     <ImageView
-        android:layout_below="@+id/car_brand"
+        android:layout_below="@+id/title"
         android:layout_width="match_parent"
         android:id="@+id/car_image"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:layout_height="210dp"/>
+        android:layout_height="180dp"/>
+
+
+    <ScrollView
+        android:layout_below="@+id/specs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:layout_below="@+id/price"
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/description"
+            android:layout_marginTop="2dp"/>
+    </ScrollView>
+
     <RelativeLayout
         android:id="@+id/specs"
-        android:layout_below="@+id/car_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/car_image"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/engine"
+        android:textSize="15dp"
         android:text="МОТОР: "
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginTop="3dp"
-        android:textSize="14sp"/>
+        android:gravity="center"/>
     <TextView
         android:layout_below="@+id/engine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/weight"
+        android:textSize="15dp"
         android:text="ВЕС: "
-        android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="14sp"/>
+        android:layout_marginTop="3dp"
+        android:gravity="center"/>
     <TextView
         android:layout_below="@+id/weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bhp"
+        android:textSize="15dp"
         android:text="МОЩНОСТЬ: "
-        android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="14sp"/>
+        android:layout_marginTop="3dp"
+        android:gravity="center"/>
 
     <TextView
         android:layout_below="@+id/bhp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/accel"
+        android:textSize="15dp"
         android:text="УСКОРЕНИЕ: "
-        android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="14sp"/>
+        android:layout_marginTop="3dp"
+        android:gravity="center"/>
     <TextView
         android:layout_below="@+id/accel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/speed"
         android:text="СКОРОСТЬ: "
-        android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
         android:textSize="14sp"/>
     <TextView
         android:layout_below="@+id/speed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/price"
+        android:textSize="15dp"
         android:text="ЦЕНА: "
-        android:layout_marginTop="3dp"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="14sp"/>
+        android:layout_marginTop="3dp"
+        android:gravity="center"/>
     <TextView
         android:layout_alignTop="@+id/engine"
         android:layout_toRightOf="@+id/engine"
@@ -97,7 +152,7 @@
         android:id="@+id/engine2"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginTop="3dp"
-        android:textSize="14sp"/>
+        android:gravity="center"/>
     <TextView
         android:layout_alignTop="@+id/weight"
         android:layout_toRightOf="@+id/weight"
@@ -106,7 +161,7 @@
         android:id="@+id/weight2"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginTop="3dp"
-        android:textSize="14sp"/>
+        android:gravity="center"/>
     <TextView
         android:layout_alignTop="@+id/bhp"
         android:layout_toRightOf="@+id/bhp"
@@ -115,7 +170,7 @@
         android:id="@+id/bhp2"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginTop="3dp"
-        android:textSize="14sp"/>
+        android:gravity="center"/>
 
     <TextView
         android:layout_alignTop="@+id/accel"
@@ -125,7 +180,7 @@
         android:id="@+id/accel2"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginTop="3dp"
-        android:textSize="14sp"/>
+        android:gravity="center"/>
     <TextView
         android:layout_alignTop="@+id/speed"
         android:layout_toRightOf="@+id/speed"
@@ -134,7 +189,7 @@
         android:id="@+id/speed2"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginTop="3dp"
-        android:textSize="14sp"/>
+        android:gravity="center"/>
     <TextView
         android:layout_alignTop="@+id/price"
         android:layout_toRightOf="@+id/price"
@@ -143,23 +198,8 @@
         android:id="@+id/price2"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginTop="3dp"
-        android:textSize="14sp"/>
-    </RelativeLayout>
+        android:gravity="center"/>
+</RelativeLayout>
 
-
-    <ScrollView
-        android:layout_below="@+id/specs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="15dp">>
-
-    <TextView
-        android:layout_below="@+id/price"
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/description"
-        android:layout_marginTop="2dp"/>
-    </ScrollView>
 
 </RelativeLayout>

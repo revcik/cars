@@ -18,7 +18,7 @@ public class BestDetailActivity extends Activity {
 
     private ShareActionProvider shareActionPRovider;
     public static final String EXTRA_CARNO = "carNo";
-    private static String Titles[];
+    private static String Brands[];
     private static int CarImages[];
     private static String Description[];
     private static String Engine[];
@@ -38,9 +38,9 @@ public class BestDetailActivity extends Activity {
         try {
             SQLiteOpenHelper carsdb = new CarsDatabaseHelper(this);
             SQLiteDatabase db = carsdb.getReadableDatabase();
-            cursor = db.rawQuery("SELECT * FROM CARS", null);
+            cursor = db.rawQuery("SELECT * FROM THEBEST", null);
 
-            Titles = new String[cursor.getCount()];
+            Brands = new String[cursor.getCount()];
             CarImages = new int[cursor.getCount()];
             Engine = new String[cursor.getCount()];
             Weight = new String[cursor.getCount()];
@@ -51,8 +51,8 @@ public class BestDetailActivity extends Activity {
             Description = new String[cursor.getCount()];
 
             cursor.moveToFirst();
-            for (int i = 0; i < Titles.length; i++) {
-                Titles[i] = cursor.getString(cursor.getColumnIndex("MODEL"));
+            for (int i = 0; i < Brands.length; i++) {
+                Brands[i] = cursor.getString(cursor.getColumnIndex("BRAND"));
                 cursor.moveToNext();
             }
             cursor.moveToFirst();
@@ -105,16 +105,16 @@ public class BestDetailActivity extends Activity {
         }
 
         int carno = (Integer)getIntent().getExtras().get(EXTRA_CARNO);
-        String carTitle = Titles[carno];
-        TextView textView = (TextView)findViewById(R.id.car_title);
-        textView.setText(carTitle);
+        String carTitle = Brands[carno];
+        TextView brand = (TextView)findViewById(R.id.car_brand);
+        brand.setText(carTitle);
         int carImage = CarImages[carno];
         ImageView imageView = (ImageView)findViewById(R.id.car_image);
         imageView.setImageDrawable(getResources().getDrawable(carImage));
         imageView.setContentDescription(carTitle);
         String description = Description[carno];
-        TextView textView2 = (TextView)findViewById(R.id.description);
-        textView2.setText(description);
+        TextView descr = (TextView)findViewById(R.id.description);
+        descr.setText(description);
 
         TextView engine = (TextView)findViewById(R.id.engine2);
         TextView weight = (TextView)findViewById(R.id.weight2);
@@ -139,7 +139,7 @@ public class BestDetailActivity extends Activity {
     public boolean onCreateOptionMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        TextView textView = (TextView)findViewById(R.id.car_title);
+        TextView textView = (TextView)findViewById(R.id.car_brand);
         CharSequence pizzaName = textView.getText();
         MenuItem menuItem = menu.findItem(R.id.action_share);
         shareActionPRovider = (ShareActionProvider)menuItem.getActionProvider();

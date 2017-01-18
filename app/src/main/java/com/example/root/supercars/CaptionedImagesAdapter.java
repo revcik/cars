@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImagesAdapter.ViewHolder>{
 
+
     private String[] captions;
     private int[] imageIds;
     private Listener listener;
@@ -22,6 +23,7 @@ class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImagesAdapter
     }
 
     public CaptionedImagesAdapter(String[] captions, int[] imageIds){
+
         this.captions=captions;
         this.imageIds=imageIds;
     }
@@ -47,6 +49,7 @@ class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImagesAdapter
         Drawable drawable = cardView.getResources().getDrawable(imageIds[position]);
         imageView.setImageDrawable(drawable);
         imageView.setContentDescription(captions[position]);
+
         TextView textView = (TextView)cardView.findViewById(R.id.info_text);
         textView.setText(captions[position]);
         cardView.setOnClickListener(new View.OnClickListener(){

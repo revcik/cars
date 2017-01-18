@@ -8,16 +8,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.root.supercars.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.example.root.supercars.BestDetailActivity"
-                  android:parentActivityName="com.example.root.supercars.Best">
-
+        <activity
+            android:name=".BestDetailActivity"
+            android:parentActivityName=".BestCategories">
+        </activity>
+        <activity android:name=".NewCarsDetailActivity">
+        </activity>
+        <activity android:name=".ModelsCategoriesActivity">
         </activity>
     </application>
 

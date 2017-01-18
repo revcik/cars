@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private int currentPosition = 0;
+    public static final String CAR_BRAND= "carbrand";
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener{
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -66,10 +67,10 @@ public class MainActivity extends Activity {
                 if (fragment instanceof TopFragment){
                     currentPosition = 0;
                 }
-                if(fragment instanceof Best){
+                if(fragment instanceof BestCategories){
                     currentPosition = 1;
                 }
-                if(fragment instanceof NewCarsFragment){
+                if(fragment instanceof NewCarsBrandCategoriesFragment){
                     currentPosition = 2;
                 }
                 if(fragment instanceof OldCarsFragment){
@@ -92,6 +93,8 @@ public class MainActivity extends Activity {
         }else{
             selectItem(0);
         }
+
+
     }
     public boolean onPrepareOptionsMenu(Menu menu){
         boolean drawerOpen = drawerLayout.isDrawerOpen(drawerList);
@@ -142,10 +145,10 @@ public class MainActivity extends Activity {
         Fragment fragment;
         switch (position){
             case 1:
-                fragment = new Best();
+                fragment = new BestCategories();
                 break;
             case 2:
-                fragment = new NewCarsFragment();
+                fragment = new NewCarsBrandCategoriesFragment();
                 break;
             case 3:
                 fragment = new OldCarsFragment();

@@ -19,31 +19,33 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Best extends Fragment {
+public class BestCategories extends Fragment {
     private static String[] Titles;
     private static int[] Images;
     private Cursor cursor;
 
 
-    public Best() {
+    public BestCategories() {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RecyclerView bestRecycler = (RecyclerView) inflater.inflate(R.layout.fragment_best, container, false);
+        RecyclerView bestRecycler = (RecyclerView) inflater.inflate(R.layout.fragment_best_categories, container, false);
 
         try {
             SQLiteOpenHelper carsdb = new CarsDatabaseHelper(getActivity());
             SQLiteDatabase db = carsdb.getReadableDatabase();
-            cursor = db.rawQuery("SELECT * FROM CARS", null);
+            cursor = db.rawQuery("SELECT * FROM THEBEST", null);
 
             Titles = new String[cursor.getCount()];
+
             Images = new int[cursor.getCount()];
+
             cursor.moveToFirst();
             for (int i = 0; i < Titles.length; i++) {
-                Titles[i] = cursor.getString(cursor.getColumnIndex("NAME"));
+                Titles[i] = cursor.getString(cursor.getColumnIndex("ANIMAL"));
                 cursor.moveToNext();
             }
             cursor.moveToFirst();
@@ -60,12 +62,12 @@ public class Best extends Fragment {
 
 
 
-        CaptionedImagesAdapter1column adapter = new CaptionedImagesAdapter1column(Titles, Images);
+        CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(Titles, Images);
         bestRecycler.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         bestRecycler.setLayoutManager(layoutManager);
 
-        adapter.setListener(new CaptionedImagesAdapter1column.Listener() {
+        adapter.setListener(new CaptionedImagesAdapter.Listener() {
             public void onClick(int position) {
                 Intent intent = new Intent(getActivity(), BestDetailActivity.class);
                 intent.putExtra(BestDetailActivity.EXTRA_CARNO, position);
