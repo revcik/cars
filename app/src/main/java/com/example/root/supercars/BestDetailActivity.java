@@ -1,14 +1,11 @@
 package com.example.root.supercars;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
@@ -136,19 +133,19 @@ public class BestDetailActivity extends Activity {
         price.setText(carprice);
     }
 
-    public boolean onCreateOptionMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        TextView textView = (TextView)findViewById(R.id.car_brand);
-        CharSequence pizzaName = textView.getText();
-        MenuItem menuItem = menu.findItem(R.id.action_share);
-        shareActionPRovider = (ShareActionProvider)menuItem.getActionProvider();
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, pizzaName);
-        shareActionPRovider.setShareIntent(intent);
-        return true;
-    }
+//    public boolean onCreateOptionMenu(Menu menu){
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//
+//        TextView textView = (TextView)findViewById(R.id.car_brand);
+//        CharSequence pizzaName = textView.getText();
+//        MenuItem menuItem = menu.findItem(R.id.action_share);
+//        shareActionPRovider = (ShareActionProvider)menuItem.getActionProvider();
+//        Intent intent = new Intent(Intent.ACTION_SEND);
+//        intent.setType("text/plain");
+//        intent.putExtra(Intent.EXTRA_TEXT, pizzaName);
+//        shareActionPRovider.setShareIntent(intent);
+//        return true;
+//    }
 
 
 }

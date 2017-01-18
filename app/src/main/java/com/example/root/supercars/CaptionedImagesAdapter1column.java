@@ -10,9 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CaptionedImagesAdapter1column extends RecyclerView.Adapter<CaptionedImagesAdapter1column.ViewHolder>{private String[] years;
-private String[] captions;
-private int[] imageIds;
-private Listener listener;
+    private String[] brands;
+    private String[] models;
+    private int[] imageIds;
+    private Listener listener;
 
 
 
@@ -20,9 +21,10 @@ public static interface Listener {
     public void onClick(int position);
 }
 
-    public CaptionedImagesAdapter1column(String[] years, String[] captions, int[] imageIds){
+    public CaptionedImagesAdapter1column(String[] years, String[] brands, String[] models, int[] imageIds){
         this.years = years;
-        this.captions=captions;
+        this.brands=brands;
+        this.models=models;
         this.imageIds=imageIds;
     }
 
@@ -46,11 +48,13 @@ public static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView = (ImageView)cardView.findViewById(R.id.info_image);
         Drawable drawable = cardView.getResources().getDrawable(imageIds[position]);
         imageView.setImageDrawable(drawable);
-        imageView.setContentDescription(captions[position]);
+        imageView.setContentDescription(models[position]);
         TextView year = (TextView)cardView.findViewById(R.id.years);
         year.setText(years[position]);
-        TextView textView = (TextView)cardView.findViewById(R.id.info_text);
-        textView.setText(captions[position]);
+        TextView brand = (TextView)cardView.findViewById(R.id.brand);
+        brand.setText(brands[position]);
+        TextView model = (TextView)cardView.findViewById(R.id.model);
+        brand.setText(models[position]);
         cardView.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if(listener !=null){

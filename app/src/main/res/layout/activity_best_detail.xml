@@ -90,7 +90,7 @@
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="14sp"/>
     <TextView
-        android:layout_alignTop="@+id/engine"
+
         android:layout_toRightOf="@+id/engine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
         android:layout_marginTop="3dp"
         android:textSize="14sp"/>
     <TextView
-        android:layout_alignTop="@+id/weight"
+        android:layout_below="@+id/engine2"
         android:layout_toRightOf="@+id/weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
         android:layout_marginTop="3dp"
         android:textSize="14sp"/>
     <TextView
-        android:layout_alignTop="@+id/bhp"
+        android:layout_below="@+id/weight2"
         android:layout_toRightOf="@+id/bhp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
         android:textSize="14sp"/>
 
     <TextView
-        android:layout_alignTop="@+id/accel"
+        android:layout_below="@+id/bhp2"
         android:layout_toRightOf="@+id/accel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
         android:layout_marginTop="3dp"
         android:textSize="14sp"/>
     <TextView
-        android:layout_alignTop="@+id/speed"
+        android:layout_below="@+id/accel2"
         android:layout_toRightOf="@+id/speed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
         android:layout_marginTop="3dp"
         android:textSize="14sp"/>
     <TextView
-        android:layout_alignTop="@+id/price"
+        android:layout_below="@+id/speed2"
         android:layout_toRightOf="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

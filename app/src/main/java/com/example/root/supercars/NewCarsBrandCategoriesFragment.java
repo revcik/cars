@@ -39,7 +39,7 @@ public class NewCarsBrandCategoriesFragment extends Fragment {
         try {
             SQLiteOpenHelper carsdb = new CarsDatabaseHelper(getActivity());
             SQLiteDatabase db = carsdb.getReadableDatabase();
-            cursor = db.rawQuery("SELECT * FROM NEWCARS", null);
+            cursor = db.query("NEWCARS", new String[]{"LOGO", "BRAND"},"LEXIST = ?", new String[]{"l"}, null, null, null);
 
             Brands = new String[cursor.getCount()];
             Logos = new int[cursor.getCount()];
