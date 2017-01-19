@@ -25,7 +25,10 @@ import android.widget.Toast;
 public class NewCarsBrandCategoriesFragment extends Fragment {
     private static String[] Brands;
     private static int[] Logos;
-    private Cursor cursor;
+    private static Cursor cursor;
+    private static SQLiteDatabase db;
+    private static RecyclerView newcars_recycler;
+    private static CaptionedImagesAdapter adapter;
 
 
 
@@ -39,11 +42,12 @@ public class NewCarsBrandCategoriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        RecyclerView newcars_recycler = (RecyclerView) inflater.inflate(R.layout.fragment_new_cars, container, false);
+        newcars_recycler = (RecyclerView) inflater.inflate(R.layout.fragment_new_cars, container, false);
+
 
         try {
             SQLiteOpenHelper carsdb = new CarsDatabaseHelper(getActivity());
-            SQLiteDatabase db = carsdb.getReadableDatabase();
+            db = carsdb.getReadableDatabase();
             cursor = db.query("NEWCARS", new String[]{"LOGO", "BRAND"},"LEXIST = ?", new String[]{"l"}, null, null, null);
 
             Brands = new String[cursor.getCount()];
@@ -64,7 +68,7 @@ public class NewCarsBrandCategoriesFragment extends Fragment {
         } catch (SQLiteException e) {
             Toast.makeText(getActivity(), "Database unavailable", Toast.LENGTH_SHORT).show();
         }
-        CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(Brands, Logos);
+        adapter = new CaptionedImagesAdapter(Brands, Logos);
         newcars_recycler.setAdapter(adapter);
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
         newcars_recycler.setLayoutManager(layoutManager);
@@ -95,5 +99,69 @@ public class NewCarsBrandCategoriesFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+//    private class UpdateBrandsTask extends AsyncTask<Void, Void, Void> {
+//
+//        protected void onPreExecute(){
+//            ProgressDialog progDailog = new ProgressDialog(getActivity());
+//            progDailog.setMessage("Loading...");
+//            progDailog.setIndeterminate(false);
+//            progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//            progDailog.setCancelable(true);
+//            progDailog.show();
+//
+//        }
+//        protected Void doInBackground (Void... params){
+//            getData();
+//            return null;
+//
+//
+//        }
+//
+//        protected void onPostExecute(Boolean succes){
+//            if(!succes){
+//                Toast.makeText(getActivity(), "Database unavailable", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+
+//    }
+    public void onDestroy(){
+        super.onDestroy();
+        cursor.close();
+        db.close();
+    }
+
+//    public void getData(){
+//        try {
+//
+//            SQLiteOpenHelper carsdb = new CarsDatabaseHelper(getActivity().getApplicationContext());
+//            db = carsdb.getReadableDatabase();
+//            cursor = db.query("NEWCARS", new String[]{"LOGO", "BRAND"},"LEXIST = ?", new String[]{"l"}, null, null, null);
+//            Brands = new String[cursor.getCount()];
+//            Logos = new int[cursor.getCount()];
+//            cursor.moveToFirst();
+//            for (int i = 0; i < Brands.length; i++) {
+//                Brands[i] = cursor.getString(cursor.getColumnIndex("BRAND"));
+//                cursor.moveToNext();
+//            }
+//            cursor.moveToFirst();
+//            for (int i = 0; i < Logos.length; i++) {
+//                Logos[i] = cursor.getInt(cursor.getColumnIndex("LOGO"));
+//                cursor.moveToNext();
+//
+//            }
+//            adapter = new CaptionedImagesAdapter(Brands, Logos);
+//            newcars_recycler.setAdapter(adapter);
+//        } catch (SQLiteException e) {
+//            Toast.makeText(getActivity(), "Database unavailable", Toast.LENGTH_SHORT).show();
+////        }finally {
+////            if (cursor != null){
+////                cursor.close();
+////                db.close();
+////            }
+//
+//        }
+//
+//    }
 }
 

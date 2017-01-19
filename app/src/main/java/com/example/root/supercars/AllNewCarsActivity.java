@@ -1,6 +1,7 @@
 package com.example.root.supercars;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -9,73 +10,77 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AllNewCarsActivity extends Activity {
+public class AllNewCarsActivity extends Activity implements View.OnClickListener {
     private static String[] Years;
     private static String[] Brands;
     private static String[] Models;
     private static int[] Images;
     private static ListView list;
     private static TextView attrText;
-    private  Cursor cursor;
-    private  Cursor cursor2;
+    private static Cursor cursor;
+    private static Cursor cursor2;
     public static SQLiteDatabase db;
     private static SQLiteOpenHelper carsdb;
-    public static int a;
+    public static boolean isSortAttrSelected;
+    public static String sortAttr;
+    private static String sortText;
+    private static Cursor cursorUP;
+    private static Cursor cursorDOWN;
+    private boolean sortAttrClicked;
+    private static AllNewCarsListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_new_cars);
         attrText = (TextView)findViewById(R.id.textattr);
-
+        ImageButton upButton = (ImageButton)findViewById(R.id.ASC);
+        upButton.setOnClickListener(this);
+        ImageButton downButton = (ImageButton)findViewById(R.id.DESC);
+        downButton.setOnClickListener(this);
         try {
             list = (ListView) findViewById(R.id.all_cars_list);
             carsdb = new CarsDatabaseHelper(this);
             db = carsdb.getReadableDatabase();
-            cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL"}, null, null, null, null, null);
-            TodoCursorAdapter todo = new TodoCursorAdapter(this, cursor);
-            list.setAdapter(todo);
+            sortAttr = "BRAND";
+            cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL"}, null, null, null, null, sortAttr + " ASC");
+            adapter = new AllNewCarsListAdapter(this, cursor);
+            list.setAdapter(adapter);
 
-//            Years = new String[cursor.getCount()];
-//            Brands = new String[cursor.getCount()];
-//            Models = new String[cursor.getCount()];
-//            Images = new int[cursor.getCount()];
-//            cursor.moveToFirst();
-//            for (int i = 0; i < Years.length; i++) {
-//                Years[i] = cursor.getString(cursor.getColumnIndex("YEAR"));
-//                cursor.moveToNext();
+//            int[] ids = new int[list.getCount()];
+//            for(int i=0; i<ids.length; i++){
+//                ids[i] = list[i];
 //            }
-//            cursor.moveToFirst();
-//            for (int i = 0; i < Brands.length; i++) {
-//                Brands[i] = cursor.getString(cursor.getColumnIndex("BRAND"));
-//                cursor.moveToNext();
-//            }
-//            cursor.moveToFirst();
-//            for (int i = 0; i < Models.length; i++) {
-//                Models[i] = cursor.getString(cursor.getColumnIndex("MODEL"));
-//                cursor.moveToNext();
-//            }
+            AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener(){
+                public void onItemClick(AdapterView<?> listView, View v, int position, long id){
+                    NewCarsDetailActivity.a = 1;
+                    TextView model = (TextView)v.findViewById(R.id.model);
+                    String mdl = model.getText().toString();
+                    Intent intent = new Intent(AllNewCarsActivity.this, NewCarsDetailActivity.class);
+                    intent.putExtra(NewCarsDetailActivity.CAR_MODEL, mdl);
+                    startActivity(intent);
 
 
 
+                }
+            };
+            list.setOnItemClickListener(itemClickListener);
         } catch (SQLiteException e) {
             Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     protected void onDestroy() {
         super.onDestroy();
-        cursor2.close();
-        if(!cursor.isClosed()){
-            cursor.close();
-        }
-        a = 0;
+        isSortAttrSelected = false;
+        cursor.close();
         db.close();
     }
 
@@ -87,21 +92,68 @@ public class AllNewCarsActivity extends Activity {
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.weight:
-                cursor.close();
-                a = 1;
+            case R.id.year:
+                isSortAttrSelected = true;
+                sortAttr = "YEAR";
+                sortText = "ГОД";
                 carsdb = new CarsDatabaseHelper(this);
                 db = carsdb.getReadableDatabase();
-                cursor2 = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", "WEIGHT"}, null, null, null, null, "WEIGHT DESC");
-                TodoCursorAdapter todo = new TodoCursorAdapter(this, cursor2);
-                attrText.setText("ВЕС КГ");
-                list.setAdapter(todo);
+                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", "YEAR"}, null, null, null, null, sortAttr + " DESC");
+                adapter = new AllNewCarsListAdapter(this, cursor);
+                attrText.setText(sortText);
+                list.setAdapter(adapter);
                 return true;
+            case R.id.engine:
+                isSortAttrSelected = true;
+                sortAttr = "ENGINE";
+                sortText = "ОБЪЕМ литр";
+                carsdb = new CarsDatabaseHelper(this);
+                db = carsdb.getReadableDatabase();
+                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", "ENGINE"}, null, null, null, null, sortAttr + " DESC");
+                adapter = new AllNewCarsListAdapter(this, cursor);
+                attrText.setText(sortText);
+                list.setAdapter(adapter);
+                return true;
+            case R.id.weight:
+                isSortAttrSelected = true;
+                sortAttr = "WEIGHT";
+                sortText = "ВЕС кг";
+                carsdb = new CarsDatabaseHelper(this);
+                db = carsdb.getReadableDatabase();
+                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", "WEIGHT"}, null, null, null, null, sortAttr + " DESC");
+                adapter = new AllNewCarsListAdapter(this, cursor);
+                attrText.setText(sortText);
+                list.setAdapter(adapter);
             default:
                 return super.onOptionsItemSelected(item);
-
         }
+    }
 
+    public void up(View view){
+        cursor = db.query("NEWCARS",new String[]{"_id", "YEAR", "BRAND", "MODEL", "ENGINE", "WEIGHT", "BHP", "ACCEL", "SPEED", "PRICE"}, null, null, null, null, sortAttr +" DESC");
+        adapter.swapCursor(cursor);
+        attrText.setText(sortText);
+        list.setAdapter(adapter);
+    }
+
+    public void down(View view) {
+        cursor = db.query("NEWCARS", new String[]{"_id", "YEAR", "BRAND", "MODEL", "ENGINE", "WEIGHT", "BHP", "ACCEL", "SPEED", "PRICE"}, null, null, null, null, sortAttr + " ASC");
+        adapter.swapCursor(cursor);
+        attrText.setText(sortText);
+        list.setAdapter(adapter);
+    }
+
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.ASC:
+                up(v);
+                break;
+            case R.id.DESC:
+                down(v);
+                break;
+        }
     }
 
 }
+
+

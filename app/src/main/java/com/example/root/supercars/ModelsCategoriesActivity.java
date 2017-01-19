@@ -65,7 +65,7 @@ public class ModelsCategoriesActivity extends Activity {
                     break;
                 case 15: cursor = db.query("NEWCARS", new String[]{"YEAR", "BRAND", "MODEL", "SIDE_IMAGE"},"BRAND = ?", new String[]{"Maserati"}, null, null, null);
                     break;
-                case 16: cursor = db.query("NEWCARS", new String[]{"YEAR", "BRAND", "MODEL", "SIDE_IMAGE"},"BRAND = ?", new String[]{"Mercedes - Maybach"}, null, null, null);
+                case 16: cursor = db.query("NEWCARS", new String[]{"YEAR", "BRAND", "MODEL", "SIDE_IMAGE"},"BRAND = ?", new String[]{"Porsche"}, null, null, null);
                     break;
                 case 17: cursor = db.query("NEWCARS", new String[]{"YEAR", "BRAND", "MODEL", "SIDE_IMAGE"},"BRAND = ?", new String[]{"McLaren"}, null, null, null);
                     break;
@@ -112,6 +112,7 @@ public class ModelsCategoriesActivity extends Activity {
         adapter2.setListener(new CaptionedImagesAdapter1column.Listener() {
             @Override
             public void onClick(int position) {
+                NewCarsDetailActivity.b = 1;
                 Intent intent = new Intent(ModelsCategoriesActivity.this, NewCarsDetailActivity.class);
                 intent.putExtra(NewCarsDetailActivity.MODEL, brandno);
                 startActivity(intent);

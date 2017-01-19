@@ -4,21 +4,18 @@
     <group
         android:visible="true"
         android:id="@+id/group">
-        <item android:id="@+id/weight"
-              android:title="weight"
+        <item android:id="@+id/year"
+              android:title="year"
               android:showAsAction="never"
-              android:icon="?android:attr/alertDialogIcon"
-
-
-              />
-        <item android:title="Item"
+              android:icon="?android:attr/alertDialogIcon"/>
+        <item android:title="engine"
               android:icon="?android:attr/actionModeCopyDrawable"
               android:showAsAction="never"
-              android:id="@+id/accel"
+              android:id="@+id/engine"
               />
-        <item android:title="Item"
+        <item android:title="weight"
               android:icon="?android:attr/actionModeSelectAllDrawable"
-              android:id="@+id/price"
+              android:id="@+id/weight"
               android:showAsAction="never"
               />
     </group>

@@ -26,8 +26,6 @@
         android:textColor="@android:color/holo_orange_dark"
         android:layout_marginRight="4dp"
         android:typeface="serif"/>
-
-
     <TextView
         android:layout_alignTop="@+id/year"
         android:layout_toRightOf="@+id/year"
@@ -83,122 +81,133 @@
         android:layout_below="@+id/car_image"
         android:layout_alignParentStart="true"
         android:layout_marginStart="16dp">
+        <RelativeLayout
+            android:id="@+id/specsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/engine"
+                android:textSize="15dp"
+                android:text="МОТОР: "
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/engine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/weightsort"
+                android:textSize="15dp"
+                android:text="ВЕС: "
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/weightsort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bhp"
+                android:textSize="15dp"
+                android:text="МОЩНОСТЬ: "
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/enginesort"
-        android:textSize="15dp"
-        android:text="МОТОР: "
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-    <TextView
-        android:layout_below="@+id/enginesort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/weightsort"
-        android:textSize="15dp"
-        android:text="ВЕС: "
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-    <TextView
-        android:layout_below="@+id/weightsort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bhp"
-        android:textSize="15dp"
-        android:text="МОЩНОСТЬ: "
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/bhp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/accelsort"
+                android:textSize="15dp"
+                android:text="УСКОРЕНИЕ: "
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/accelsort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/speedsort"
+                android:text="СКОРОСТЬ: "
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_below="@+id/speedsort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pricesort"
+                android:textSize="15dp"
+                android:text="ЦЕНА: "
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/specsBlank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/specsText">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/engine2"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_toRightOf="@+id/engine2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/engine2ads"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/engine2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/weight2"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/weight2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bhp2"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
 
-    <TextView
-        android:layout_below="@+id/bhp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/accelsort"
-        android:textSize="15dp"
-        android:text="УСКОРЕНИЕ: "
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-    <TextView
-        android:layout_below="@+id/accelsort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/speedsort"
-        android:text="СКОРОСТЬ: "
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"
-        android:textSize="14sp"/>
-    <TextView
-        android:layout_below="@+id/speedsort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pricesort"
-        android:textSize="15dp"
-        android:text="ЦЕНА: "
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-    <TextView
-        android:layout_alignTop="@+id/enginesort"
-        android:layout_toRightOf="@+id/enginesort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/engine2"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-    <TextView
-        android:layout_alignTop="@+id/weightsort"
-        android:layout_toRightOf="@+id/weightsort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/weight2"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-    <TextView
-        android:layout_alignTop="@+id/bhp"
-        android:layout_toRightOf="@+id/bhp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bhp2"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-
-    <TextView
-        android:layout_alignTop="@+id/accelsort"
-        android:layout_toRightOf="@+id/accelsort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/accel2"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-    <TextView
-        android:layout_alignTop="@+id/speedsort"
-        android:layout_toRightOf="@+id/speedsort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/speed2"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
-    <TextView
-        android:layout_alignTop="@+id/pricesort"
-        android:layout_toRightOf="@+id/pricesort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/price2"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="3dp"
-        android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/bhp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/accel2"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/accel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/speed2"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_below="@+id/speed2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/price2"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginTop="3dp"
+                android:gravity="center"/>
+            </RelativeLayout>
 </RelativeLayout>
 
 
