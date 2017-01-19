@@ -92,41 +92,55 @@ public class AllNewCarsActivity extends Activity implements View.OnClickListener
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.year:
+
+            case R.id.bhpsortM:
                 isSortAttrSelected = true;
-                sortAttr = "YEAR";
-                sortText = "ГОД";
+                sortAttr = "BHP";
+                sortText = "Л.С.";
                 carsdb = new CarsDatabaseHelper(this);
                 db = carsdb.getReadableDatabase();
-                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", "YEAR"}, null, null, null, null, sortAttr + " DESC");
-                adapter = new AllNewCarsListAdapter(this, cursor);
+                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", sortAttr}, null, null, null, null, sortAttr + " DESC");
+                adapter.swapCursor(cursor);
                 attrText.setText(sortText);
                 list.setAdapter(adapter);
                 return true;
-            case R.id.engine:
+            case R.id.speedsortM:
+                isSortAttrSelected = true;
+                sortAttr = "SPEED";
+                sortText = "КМ/Ч";
+                carsdb = new CarsDatabaseHelper(this);
+                db = carsdb.getReadableDatabase();
+                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", sortAttr}, null, null, null, null, sortAttr + " DESC");
+                adapter.swapCursor(cursor);
+                attrText.setText(sortText);
+                list.setAdapter(adapter);
+                return true;
+            case R.id.enginesortM:
                 isSortAttrSelected = true;
                 sortAttr = "ENGINE";
-                sortText = "ОБЪЕМ литр";
+                sortText = "ЛИТР";
                 carsdb = new CarsDatabaseHelper(this);
                 db = carsdb.getReadableDatabase();
-                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", "ENGINE"}, null, null, null, null, sortAttr + " DESC");
-                adapter = new AllNewCarsListAdapter(this, cursor);
+                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", sortAttr}, null, null, null, null, sortAttr + " DESC");
+                adapter.swapCursor(cursor);
                 attrText.setText(sortText);
                 list.setAdapter(adapter);
                 return true;
-            case R.id.weight:
+            case R.id.pricesortM:
                 isSortAttrSelected = true;
-                sortAttr = "WEIGHT";
-                sortText = "ВЕС кг";
+                sortAttr = "PRICE";
+                sortText = "USD";
                 carsdb = new CarsDatabaseHelper(this);
                 db = carsdb.getReadableDatabase();
-                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", "WEIGHT"}, null, null, null, null, sortAttr + " DESC");
-                adapter = new AllNewCarsListAdapter(this, cursor);
+                cursor = db.query("NEWCARS", new String[]{"_id", "BRAND", "MODEL", "PRICE"}, null, null, null, null, sortAttr + " DESC");
+                adapter.swapCursor(cursor);
                 attrText.setText(sortText);
                 list.setAdapter(adapter);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+
     }
 
     public void up(View view){

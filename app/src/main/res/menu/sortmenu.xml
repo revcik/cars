@@ -4,19 +4,26 @@
     <group
         android:visible="true"
         android:id="@+id/group">
-        <item android:id="@+id/year"
-              android:title="year"
+        <item android:title="Объем двигателя"
+
               android:showAsAction="never"
-              android:icon="?android:attr/alertDialogIcon"/>
-        <item android:title="engine"
-              android:icon="?android:attr/actionModeCopyDrawable"
-              android:showAsAction="never"
-              android:id="@+id/engine"
+              android:id="@+id/enginesortM"
               />
-        <item android:title="weight"
-              android:icon="?android:attr/actionModeSelectAllDrawable"
-              android:id="@+id/weight"
+        <item android:title="Мощность"
+
+              android:id="@+id/bhpsortM"
               android:showAsAction="never"
               />
+        <item android:title="Скорость"
+
+              android:id="@+id/speedsortM"
+              android:showAsAction="never"
+            />
+        <item android:title="Цена"
+
+              android:id="@+id/pricesortM"
+              android:showAsAction="never"
+            />
+
     </group>
 </menu>

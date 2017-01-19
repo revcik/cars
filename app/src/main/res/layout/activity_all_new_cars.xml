@@ -37,19 +37,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <ImageButton
+
             android:id="@+id/ASC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-
-            />
+            android:backgroundTint="#ffffbb33"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@android:drawable/arrow_up_float"
+            android:layout_marginRight="5dp"/>
 
         <ImageButton
             android:layout_toRightOf="@+id/ASC"
+            android:backgroundTint="#ffffbb33"
             android:id="@+id/DESC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-/>
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@android:drawable/arrow_down_float"/>
 
 
     </RelativeLayout>

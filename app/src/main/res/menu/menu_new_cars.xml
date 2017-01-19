@@ -4,6 +4,6 @@
     <item android:title="Item"
           android:showAsAction="always|collapseActionView"
           android:visible="true"
-          android:icon="@mipmap/car_icon"
+          android:icon="@drawable/ic_time_to_leave_black_24dp"
           android:id="@+id/cars"/>
 </menu>
